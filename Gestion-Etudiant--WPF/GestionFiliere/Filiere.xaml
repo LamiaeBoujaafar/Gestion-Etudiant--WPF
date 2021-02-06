@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Gestion_Etudiant__WPF.GestionFiliere.Filiere"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Gestion_Etudiant__WPF.GestionFiliere"
+             mc:Ignorable="d" 
+             >
+    <Grid Background="#f8f1f1" Height="540" Width="1010">
+        <TextBlock  Foreground="#350b40"  FontSize="22">HELLO Filiere</TextBlock>
+    </Grid>
+</UserControl>
