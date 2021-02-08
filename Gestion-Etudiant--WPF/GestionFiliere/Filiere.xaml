@@ -3,10 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Gestion_Etudiant__WPF.GestionFiliere"
              mc:Ignorable="d" 
              >
-    <Grid Background="#f8f1f1" Height="540" Width="1010">
-        <TextBlock  Foreground="#350b40"  FontSize="22">HELLO Filiere</TextBlock>
+    <Grid Background="#f8f1f1" Height="540" Width="1010" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="0 100 0 0">
+            <DataGrid Name="dataGrid1" ItemsSource="{Binding }" Width="400" Height="300"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                <Button x:Name="LoadButton"  Content="Charger DATA" Click="btnData_Click" Width="150" Margin="5"/>
+                <Button x:Name="DeleteButton"  Content="Supprimer" Click="btnDelete_Click" Width="150" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="0 140 0 0">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Ajouter ou Modifier" Margin="0 5 0 0" Foreground="#350b40" TextAlignment="Center" FontSize="35" FontFamily="Great Vibes"></TextBlock>
+                <TextBlock Text="Filière" Margin="0 5 0 0" Foreground="#350b40" TextAlignment="Center" FontSize="35" FontFamily="Great Vibes"></TextBlock>
+                <TextBox x:Name="txtID" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Nom du Filière"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
+                <TextBox x:Name="txtFiliere" Margin="0 5 0 0" materialDesign:HintAssist.Hint="Responsable de filiere"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                    <Button x:Name="ModifyButton"  Content="Modifier" Click="btnModify_Click" Width="100" Margin="5"/>
+                    <Button x:Name="AddButton"  Content="Ajouter" Width="100" Click="btnAdd_Click" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
     </Grid>
 </UserControl>
