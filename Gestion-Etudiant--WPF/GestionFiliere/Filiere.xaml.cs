@@ -23,12 +23,12 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
     /// </summary>
     public partial class Filiere : UserControl
     {
-        ServiceEtudiant service;
+        ServiceFiliere service;
 
         public Filiere()
         {
             InitializeComponent();
-            service = new ServiceEtudiant();
+            service = new ServiceFiliere();
             dataGrid1.ItemsSource  = service.FillData().DefaultView;
         }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
