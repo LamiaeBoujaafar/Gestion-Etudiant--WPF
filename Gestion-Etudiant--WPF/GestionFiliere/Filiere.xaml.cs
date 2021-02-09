@@ -23,12 +23,12 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
     /// </summary>
     public partial class Filiere : UserControl
     {
-        ServiceEtudiant service;
+        ServiceFiliere service;
 
         public Filiere()
         {
             InitializeComponent();
-            service = new ServiceEtudiant();
+            service = new ServiceFiliere();
             dataGrid1.ItemsSource  = service.FillData().DefaultView;
         }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -37,7 +37,13 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            int position = this.dataGrid1.SelectedIndex;
+            DataRowView dataRow = (DataRowView)dataGrid1.SelectedItem;
+            int index = dataGrid1.CurrentCell.Column.DisplayIndex;
+            string cellValue = dataRow.Row.ItemArray[index].ToString();
+            MessageBox.Show("position : " + index + " --- " + cellValue);
+           //service.delete(position);
+           dataGrid1.ItemsSource = service.FillData().DefaultView;
         }
         
         private void btnData_Click(object sender, RoutedEventArgs e)

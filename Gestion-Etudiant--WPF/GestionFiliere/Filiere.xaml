@@ -13,7 +13,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Margin="0 100 0 0">
-            <DataGrid Name="dataGrid1" ItemsSource="{Binding }" Width="400" Height="300"/>
+            <DataGrid Name="dataGrid1" ItemsSource="{Binding }"  AutoGenerateColumns="True"  Width="400" Height="300"/>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
                 <Button x:Name="LoadButton"  Content="Charger DATA" Click="btnData_Click" Width="150" Margin="5"/>

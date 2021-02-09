@@ -70,7 +70,7 @@
     <Compile Include="GestionFiliere\Filiere.xaml.cs">
       <DependentUpon>Filiere.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Services\ServiceEtudiant.cs" />
+    <Compile Include="Services\ServiceFiliere.cs" />
     <Page Include="GestionEtudiant\AccueilEtudiant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
