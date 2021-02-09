@@ -1,46 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gestion_Etudiant__WPF.Services
 {
     class ServiceFiliere
     {
-        SqlConnection con = new SqlConnection();
-        SqlCommand com = new SqlCommand();
+        SqlConnection connection = new SqlConnection();
+        SqlCommand command = new SqlCommand();
         String strConn = Config.CONNECTION_STRING;
+<<<<<<<< HEAD:Gestion-Etudiant--WPF/Services/ServiceFiliere.cs
         public ServiceFiliere()
+========
+
+        public ServiceEtudiant()
+>>>>>>>> f5d3f4d6e0f86fcfe7c74843d634c938717e7b5a:Gestion-Etudiant--WPF/Services/ServiceEtudiant.cs
         {
-            con = new SqlConnection(strConn);
+            connection = new SqlConnection(strConn);
         }
-        public bool delete(object id)
         {
-            con.Open();
-            string requete = "DELETE FROM Filiere WHERE ID_Filiere = @id ";
-            SqlCommand cmd = new SqlCommand(requete, con);
-            cmd.Parameters.AddWithValue("@id", id);
-            int a = cmd.ExecuteNonQuery();
-            con.Close();
-            return a > 0;
         }
         public DataTable FillData()
+========
+
+        public DataTable getAll()
+>>>>>>>> f5d3f4d6e0f86fcfe7c74843d634c938717e7b5a:Gestion-Etudiant--WPF/Services/ServiceEtudiant.cs
         {
-            string sql = "SELECT * FROM Filiere";
-            DataTable dt;
-            con.Open();
-            using (com = new SqlCommand(sql, con))
+            
+            SqlCommand cmd = new SqlCommand(query, connection);
+            DataTable dt = new DataTable("fil");
+            connection.Open();
+            SqlDataReader red = cmd.ExecuteReader();
+
+            if (red.HasRows)
             {
-                dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(com);
-                da.Fill(dt);
-                
+                dt.Load(red);
+                connection.Close();
+                return dt;
             }
-            con.Close();
-            return dt;
+            else
+            {
+                connection.Close();
+                return null;
+            }
+
         }
     }
 }
