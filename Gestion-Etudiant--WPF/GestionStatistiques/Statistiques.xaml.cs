@@ -37,8 +37,8 @@ namespace Gestion_Etudiant__WPF.GestionStatistiques
 
         private void getData()
         {
-            DataTable dataFiliere = serviceFiliere.getAll();
-            DataTable dataEtudiant = serviceEtudiant.getAll();
+            DataTable dataFiliere = serviceFiliere.FillData();
+            DataTable dataEtudiant = serviceEtudiant.FillData();
 
             for (int i = 0; i < dataFiliere.Rows.Count; i++)
             {

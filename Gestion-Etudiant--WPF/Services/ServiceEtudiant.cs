@@ -1,24 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Gestion_Etudiant__WPF.Services
 {
-    class ServiceFiliere
+    class ServiceEtudiant
     {
         SqlConnection connection = new SqlConnection();
         SqlCommand command = new SqlCommand();
         String strConn = Config.CONNECTION_STRING;
 
-        public ServiceFiliere()
+        public ServiceEtudiant()
         {
             connection = new SqlConnection(strConn);
         }
-        
-        
+
         public DataTable FillData()
         {
-            string query = "SELECT * FROM Filiere";
+            string query = "SELECT * FROM Etudiant";
+
             SqlCommand cmd = new SqlCommand(query, connection);
             DataTable dt = new DataTable("fil");
             connection.Open();
