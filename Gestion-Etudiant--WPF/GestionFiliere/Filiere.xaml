@@ -13,8 +13,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Margin="0 100 0 0">
-            <DataGrid Name="dataGrid1" ItemsSource="{Binding }"  AutoGenerateColumns="True"  Width="400" Height="300"/>
-            
+            <DataGrid Name="dataGrid1"  SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" ItemsSource="{Binding }"  AutoGenerateColumns="True"  Width="400" Height="300">
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    </Style>
+                </DataGrid.ItemContainerStyle>
+            </DataGrid>
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
                 <Button x:Name="LoadButton"  Content="Charger DATA" Click="btnData_Click" Width="150" Margin="5"/>
                 <Button x:Name="DeleteButton"  Content="Supprimer" Click="btnDelete_Click" Width="150" Margin="5"/>
@@ -24,8 +30,8 @@
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock Text="Ajouter ou Modifier" Margin="0 5 0 0" Foreground="#350b40" TextAlignment="Center" FontSize="35" FontFamily="Great Vibes"></TextBlock>
                 <TextBlock Text="Filière" Margin="0 5 0 0" Foreground="#350b40" TextAlignment="Center" FontSize="35" FontFamily="Great Vibes"></TextBlock>
-                <TextBox x:Name="txtID" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Nom du Filière"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
-                <TextBox x:Name="txtFiliere" Margin="0 5 0 0" materialDesign:HintAssist.Hint="Responsable de filiere"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
+                <TextBox x:Name="txtResponsable" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Responsable de filiere"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
+                <TextBox x:Name="txtFiliere" Margin="0 5 0 0" materialDesign:HintAssist.Hint="Nom du Filière"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
                     <Button x:Name="ModifyButton"  Content="Modifier" Click="btnModify_Click" Width="100" Margin="5"/>
                     <Button x:Name="AddButton"  Content="Ajouter" Width="100" Click="btnAdd_Click" Margin="5"/>

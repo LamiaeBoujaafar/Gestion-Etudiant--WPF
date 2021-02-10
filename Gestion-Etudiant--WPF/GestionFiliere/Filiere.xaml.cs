@@ -31,19 +31,53 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
             service = new ServiceFiliere();
             dataGrid1.ItemsSource  = service.FillData().DefaultView;
         }
+        int value = 0;
+        string respo = "";
+        string filiere = "";
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var index = dataGrid1.SelectedIndex;
+            DataGridRow row = dataGrid1.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow;
+            DataRowView MyRow = (DataRowView)row.Item;
+            value = int.Parse(MyRow.Row[0].ToString());
+            respo = MyRow.Row[1].ToString();
+            filiere = (MyRow.Row[2].ToString());
+            txtResponsable.Text = respo;
+            txtFiliere.Text = filiere;
+
+        }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            string responsable = txtResponsable.Text;
+            string filiere = txtFiliere.Text;
+            if(responsable == null || filiere == null)
+            {
+                MessageBox.Show("Veuillez remplir le formulaire");
+            }
+            else
+            {
+                service.insert(responsable, filiere);
+                txtResponsable.Text = "";
+                txtFiliere.Text = "";
+                dataGrid1.ItemsSource = service.FillData().DefaultView;
+                MessageBox.Show("Bien Ajouté");
+            }
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            int position = this.dataGrid1.SelectedIndex;
-            DataRowView dataRow = (DataRowView)dataGrid1.SelectedItem;
-            int index = dataGrid1.CurrentCell.Column.DisplayIndex;
-            string cellValue = dataRow.Row.ItemArray[index].ToString();
-            MessageBox.Show("position : " + index + " --- " + cellValue);
-           //service.delete(position);
-           dataGrid1.ItemsSource = service.FillData().DefaultView;
+            if (dataGrid1.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez selectionner une ligne de grille", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                string x  = service.delete(value);
+                dataGrid1.ItemsSource = service.FillData().DefaultView;
+                txtResponsable.Text = "";
+                txtFiliere.Text = "";
+                MessageBox.Show("" + x);
+
+            }       
         }
         
         private void btnData_Click(object sender, RoutedEventArgs e)
@@ -52,7 +86,27 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
         }
         private void btnModify_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (dataGrid1.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez selectionner une ligne de grille", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                string responsableUpdate = txtResponsable.Text;
+                string filiereUpdate = txtFiliere.Text;
+                if (responsableUpdate == null || filiereUpdate == null)
+                {
+                    MessageBox.Show("Veuillez bien remplir le formulaire");
+                }
+                else
+                {
+                    service.update(value,responsableUpdate, filiereUpdate);
+                    txtResponsable.Text = "";
+                    txtFiliere.Text = "";
+                    dataGrid1.ItemsSource = service.FillData().DefaultView;
+                    MessageBox.Show("Bien Modifié");
+                }
+            }
         }
     }
 }
