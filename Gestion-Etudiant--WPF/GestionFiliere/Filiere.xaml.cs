@@ -46,8 +46,18 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
             txtFiliere.Text = filiere;
 
         }
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            dataGrid1.ItemsSource = service.get(txtSearch.Text).DefaultView;
+        }
+            private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            string validationMessage = ValidateInputs();
+            if (validationMessage != null)
+            {
+                MessageBox.Show(validationMessage);
+                return;
+            }
             string responsable = txtResponsable.Text;
             string filiere = txtFiliere.Text;
             if(responsable == null || filiere == null)
@@ -92,6 +102,12 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
             }
             else
             {
+                string validationMessage = ValidateInputs();
+                if (validationMessage != null)
+                {
+                    MessageBox.Show(validationMessage);
+                    return;
+                }
                 string responsableUpdate = txtResponsable.Text;
                 string filiereUpdate = txtFiliere.Text;
                 if (responsableUpdate == null || filiereUpdate == null)
@@ -107,6 +123,16 @@ namespace Gestion_Etudiant__WPF.GestionFiliere
                     MessageBox.Show("Bien Modifié");
                 }
             }
+        }
+        string ValidateInputs()
+        {
+            string responsable = txtResponsable.Text;
+            string filiere = txtFiliere.Text;
+
+            if (string.IsNullOrEmpty(responsable)) return "Responsable is required";
+            if (string.IsNullOrEmpty(filiere)) return "Filiere is required";
+          
+            return null;
         }
     }
 }

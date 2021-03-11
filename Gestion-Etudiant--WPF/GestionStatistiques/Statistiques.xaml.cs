@@ -35,6 +35,8 @@ namespace Gestion_Etudiant__WPF.GestionStatistiques
             draw();
         }
 
+
+
         private void getData()
         {
             DataTable dataFiliere = serviceFiliere.FillData();

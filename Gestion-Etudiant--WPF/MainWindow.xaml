@@ -58,20 +58,20 @@
                 <ListView x:Name="ListViewMenu" Foreground="#f8f1f1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
                     <ListViewItem x:Name="ItemStudent" Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="school" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Etudiants" VerticalAlignment="Center" Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="school" Height="25" Width="25" Margin="10" Foreground="#f8f1f1"/>
+                            <TextBlock Text="Etudiants" VerticalAlignment="Center" Margin="20 10" Foreground="#f8f1f1"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemFiliere" Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Filières" VerticalAlignment="Center" Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="10" Foreground="#f8f1f1"/>
+                            <TextBlock Text="Filières" VerticalAlignment="Center" Margin="20 10" Foreground="#f8f1f1"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemStatistiques"  Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Ticket" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Statistiques" VerticalAlignment="Center"  Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="Ticket" Height="25" Width="25" Margin="10" Foreground="#f8f1f1"/>
+                            <TextBlock Text="Statistiques" VerticalAlignment="Center"  Margin="20 10" Foreground="#f8f1f1"/>
                         </StackPanel>
                     </ListViewItem>
                     <!--

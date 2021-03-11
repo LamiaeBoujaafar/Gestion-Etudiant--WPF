@@ -14,7 +14,31 @@ namespace Gestion_Etudiant__WPF.Services
         {
             connection = new SqlConnection(strConn);
         }
+        public DataTable get(String filiere)
+        {
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * from Filiere where Responsable like @filiere;",
+                connection);
+            cmd.Parameters.AddWithValue("@filiere", $"%{filiere}%");
+   
+            DataTable dt = new DataTable("fil");
+            connection.Open();
+            SqlDataReader red = cmd.ExecuteReader();
 
+            if (red.HasRows)
+            {
+                dt.Load(red);
+                connection.Close();
+                return dt;
+            }
+            else
+            {
+                connection.Close();
+                return null;
+            }
+            return null;
+
+        }
         public string delete(int id)
         {
             connection.Open();

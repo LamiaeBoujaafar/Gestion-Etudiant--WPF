@@ -17,11 +17,9 @@
         <Border Height="440" VerticalAlignment="Top" CornerRadius="0 0 100 0" Background="#350b40" >
         </Border>
         <StackPanel Orientation="Horizontal">
-            <StackPanel Width="350">
-                <Image Source="assets/student.png" Width="200" Height="300" VerticalAlignment="Top" Margin="30 60 0 0" Stretch="Fill" />
-            </StackPanel>
-            <StackPanel Width="350">
-                <StackPanel Margin="20 80">
+            
+            <StackPanel Width="450">
+                <StackPanel Margin="50 80">
                     <TextBlock Text="Bienvenue" Margin="20" Foreground="White" TextAlignment="Center" FontSize="38" FontFamily="Great Vibes"></TextBlock>
                     <StackPanel Orientation="Horizontal" Margin="10">
                         <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="White"/>
@@ -38,6 +36,9 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
+            </StackPanel>
+            <StackPanel Width="250">
+                <Image Source="assets/student.png" Width="200" Height="300" VerticalAlignment="Top" Margin="30 60 0 0" Stretch="Fill" />
             </StackPanel>
             <StackPanel Width="100">
                 <Button Margin="10 20" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"

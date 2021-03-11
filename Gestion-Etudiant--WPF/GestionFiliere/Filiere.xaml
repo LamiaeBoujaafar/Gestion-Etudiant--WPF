@@ -12,7 +12,13 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Margin="0 100 0 0">
+        <StackPanel Grid.Column="0" Margin="0 80 0 0">
+            <StackPanel  Margin="50 0 0 0" Orientation="Horizontal">
+                <TextBox x:Name="txtSearch"  Margin="0 0 0 20"  materialDesign:HintAssist.Hint="Chercher par responsable"  Width="340"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
+                <Button BorderBrush="#f8f1f1" Background="#f8f1f1" Margin="8 0 0 0" Click="btnSearch_Click">
+                    <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" Foreground="#350b40" />
+                </Button>
+            </StackPanel>
             <DataGrid Name="dataGrid1"  SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" ItemsSource="{Binding }"  AutoGenerateColumns="True"  Width="400" Height="300">
                 <DataGrid.ItemContainerStyle>
                     <Style TargetType="DataGridRow">
@@ -20,6 +26,7 @@
                     </Style>
                 </DataGrid.ItemContainerStyle>
             </DataGrid>
+            
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
                 <Button x:Name="LoadButton"  Content="Charger DATA" Click="btnData_Click" Width="150" Margin="5"/>
