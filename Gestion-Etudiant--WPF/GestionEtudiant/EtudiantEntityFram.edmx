@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GestionEtudiantWPFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mdp" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Etudiant">
+          <Key>
+            <PropertyRef Name="ID_Etudiant" />
+          </Key>
+          <Property Name="ID_Etudiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CNE" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="20" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="adresse" Type="varchar" MaxLength="250" />
+          <Property Name="tele" Type="varchar" MaxLength="20" />
+          <Property Name="age" Type="int" />
+          <Property Name="photo" Type="varchar" MaxLength="300" />
+          <Property Name="ID_Filiere" Type="int" />
+        </EntityType>
+        <EntityType Name="Filiere">
+          <Key>
+            <PropertyRef Name="ID_Filiere" />
+          </Key>
+          <Property Name="ID_Filiere" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Responsable" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FiliereName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Etudiant__ID_Fil__3C69FB99">
+          <End Role="Filiere" Type="Self.Filiere" Multiplicity="0..1" />
+          <End Role="Etudiant" Type="Self.Etudiant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filiere">
+              <PropertyRef Name="ID_Filiere" />
+            </Principal>
+            <Dependent Role="Etudiant">
+              <PropertyRef Name="ID_Filiere" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestionEtudiantWPFModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etudiant" EntityType="Self.Etudiant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filiere" EntityType="Self.Filiere" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Etudiant__ID_Fil__3C69FB99" Association="Self.FK__Etudiant__ID_Fil__3C69FB99">
+            <End Role="Filiere" EntitySet="Filiere" />
+            <End Role="Etudiant" EntitySet="Etudiant" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GestionEtudiantWPFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mdp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Etudiant">
+          <Key>
+            <PropertyRef Name="ID_Etudiant" />
+          </Key>
+          <Property Name="ID_Etudiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CNE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="adresse" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="tele" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="photo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Filiere" Type="Int32" />
+          <NavigationProperty Name="Filiere" Relationship="Self.FK__Etudiant__ID_Fil__3C69FB99" FromRole="Etudiant" ToRole="Filiere" />
+        </EntityType>
+        <EntityType Name="Filiere">
+          <Key>
+            <PropertyRef Name="ID_Filiere" />
+          </Key>
+          <Property Name="ID_Filiere" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Responsable" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FiliereName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Etudiants" Relationship="Self.FK__Etudiant__ID_Fil__3C69FB99" FromRole="Filiere" ToRole="Etudiant" />
+        </EntityType>
+        <Association Name="FK__Etudiant__ID_Fil__3C69FB99">
+          <End Role="Filiere" Type="Self.Filiere" Multiplicity="0..1" />
+          <End Role="Etudiant" Type="Self.Etudiant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filiere">
+              <PropertyRef Name="ID_Filiere" />
+            </Principal>
+            <Dependent Role="Etudiant">
+              <PropertyRef Name="ID_Filiere" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestionEtudiantWPFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Etudiants" EntityType="Self.Etudiant" />
+          <EntitySet Name="Filieres" EntityType="Self.Filiere" />
+          <AssociationSet Name="FK__Etudiant__ID_Fil__3C69FB99" Association="Self.FK__Etudiant__ID_Fil__3C69FB99">
+            <End Role="Filiere" EntitySet="Filieres" />
+            <End Role="Etudiant" EntitySet="Etudiants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GestionEtudiantWPFModelStoreContainer" CdmEntityContainer="GestionEtudiantWPFEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="GestionEtudiantWPFModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mdp" ColumnName="Mdp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etudiants">
+            <EntityTypeMapping TypeName="GestionEtudiantWPFModel.Etudiant">
+              <MappingFragment StoreEntitySet="Etudiant">
+                <ScalarProperty Name="ID_Etudiant" ColumnName="ID_Etudiant" />
+                <ScalarProperty Name="CNE" ColumnName="CNE" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="tele" ColumnName="tele" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="ID_Filiere" ColumnName="ID_Filiere" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filieres">
+            <EntityTypeMapping TypeName="GestionEtudiantWPFModel.Filiere">
+              <MappingFragment StoreEntitySet="Filiere">
+                <ScalarProperty Name="ID_Filiere" ColumnName="ID_Filiere" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="FiliereName" ColumnName="FiliereName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

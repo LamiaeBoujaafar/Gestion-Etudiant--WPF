@@ -4,8 +4,98 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Gestion_Etudiant__WPF.GestionEtudiant"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             Loaded="UserControl_Loaded"
              mc:Ignorable="d" >
     <Grid Background="#f8f1f1" Height="540" Width="1010">
-        <TextBlock  Foreground="#350b40"  FontSize="22">HELLO Etudiant</TextBlock>
-     </Grid>
+        <DataGrid x:Name="dataGridEtud" SelectionMode="Single"  SelectionUnit="FullRow"
+                  IsReadOnly="True" 
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"
+                  
+            HorizontalAlignment="Left"  Background="#add0ae" Height="355" 
+                  Margin="198,129,0,0" VerticalAlignment="Top" Width="784" Foreground="Black" FontWeight="Bold" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns >
+                <DataGridTemplateColumn Header="photo"  IsReadOnly="True" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding photo}" Width="80" Height="80" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="ID"  
+                                Binding="{Binding ID_Etudiant}"  
+                                Header="ID Etud"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="CNE"  
+                                Binding="{Binding CNE}"  
+                                Header="CNE"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="FirstName"  
+                                Binding="{Binding FirstName}"  
+                                Header="FirstName"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="LastName"  
+                                Binding="{Binding LastName}"  
+                                Header="LastName"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="gender"  
+                                Binding="{Binding gender}"  
+                                Header="Gender"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="DOB"  
+                                Binding="{Binding DOB}"  
+                                Header="Date de naissance"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="adresse"  
+                                Binding="{Binding adresse}"  
+                                Header="Adresse"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="tele"  
+                                Binding="{Binding tele}"  
+                                Header="Téléphone"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="dgrLastName"  
+                                Binding="{Binding Age}"  
+                                Header="Age"  
+                                IsReadOnly="True" />
+                <DataGridTextColumn x:Name="ID_Filiere"  
+                                Binding="{Binding ID_Filiere}"  
+                                Header="Filiere"  
+                                IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--
+        <DataGrid x:Name="dataGridEtud" HorizontalAlignment="Left" CanUserAddRows="False"  Margin="265,20,0,89" SelectionUnit="Cell" SelectionMode="Extended" Width="728" RenderTransformOrigin="0.5,0.5" >
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-1.027"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-4.482"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
+        -->
+        <ComboBox x:Name="filiereComboBox" 
+                   Width="180" Height="40" 
+                          materialDesign:HintAssist.Hint="Filière"
+                          materialDesign:HintAssist.HintOpacity="1"
+                          IsEditable="True" 
+                  SelectionChanged="filiereComboBox_SelectionChanged" Margin="496,40,334,460"/>
+        <Button x:Name="AfficherBtn" Background="#350b40" Content="Afficher"  Click="AfficherBtn_Click" HorizontalAlignment="Left" Margin="25,160,0,0" VerticalAlignment="Top" Width="144" Height="40"/>
+        <TextBlock Margin="198,46,556,0"  VerticalAlignment="Top" Height="34" Text="Choix de Filière" FontSize="28" FontWeight="DemiBold"  TextAlignment="Center" Background="#add0ae"/>
+        <Button x:Name="suppBtn" Background="#350b40" Click="suppBtn_Click" Content="Supprimer" HorizontalAlignment="Left" Margin="25,342,0,0" VerticalAlignment="Top" Width="146" Height="40"/>
+        <Button x:Name="modifBtn" Background="#350b40" Click="modifBtn_Click" Content="Modifier" HorizontalAlignment="Left" Margin="24,252,0,0" VerticalAlignment="Top" Width="145" Height="40" RenderTransformOrigin="-1.476,4.425"/>
+        <Label Content="Responsable de filiere :" HorizontalAlignment="Left" Margin="434,489,0,0" VerticalAlignment="Top" Width="306" FontSize="26" FontWeight="Medium" Height="51" RenderTransformOrigin="0.405,0.49"/>
+        <TextBlock x:Name="respoTxtBox" Text="hello world" HorizontalAlignment="Left" Height="34" Margin="724,494,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="204" IsEnabled="False" FontSize="23" FontFamily="Century Gothic" Foreground="Black"/>
+        <Button x:Name="ajoutBtn" Background="#350b40" Click="ajoutBtn_Click" Content="Ajouter" HorizontalAlignment="Left" Margin="24,429,0,0" VerticalAlignment="Top" Width="147" Height="40"/>
+    </Grid>
 </UserControl>

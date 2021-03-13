@@ -48,7 +48,7 @@ namespace Gestion_Etudiant__WPF
                     Title.Text = "Gestion des Etudiants";
                     break;
                 case "ItemFiliere":
-                    usc = new Filiere();
+                    ///usc = new Filiere();
                     GridMain.Children.Add(usc);
                     Title.Text = "Gestion des Filières";
                     break;
