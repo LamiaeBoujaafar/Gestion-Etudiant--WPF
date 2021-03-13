@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Gestion_Etudiant__WPF.GestionStatistiques"
-             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="Gestion_Etudiant__WPF.GestionStatistiques.Statistiques"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" 
+            x:Class="Gestion_Etudiant__WPF.GestionStatistiques.Statistiques"
              mc:Ignorable="d" 
              >
     <Grid Background="#f8f1f1" Height="540" Width="1010">
