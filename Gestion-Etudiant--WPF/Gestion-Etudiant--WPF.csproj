@@ -38,12 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -53,8 +47,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,6 +56,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -98,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EtudiantEntityFram.edmx</DependentUpon>
     </Compile>
+    <Compile Include="GestionEtudiant\EtudiantEntityFram1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EtudiantEntityFram.edmx</DependentUpon>
+    </Compile>
     <Compile Include="GestionEtudiant\Filiere.cs">
       <DependentUpon>EtudiantEntityFram.tt</DependentUpon>
     </Compile>
@@ -110,6 +108,8 @@
     <Compile Include="GestionFiliere\Filiere.xaml.cs">
       <DependentUpon>Filiere.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\ServiceEtudiant.cs" />
+    <Compile Include="Services\ServiceFiliere.cs" />
     <Page Include="GestionEtudiant\AccueilEtudiant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,19 +167,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <EntityDeploy Include="GestionEtudiant\EtudiantEntityFram.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EtudiantEntityFram.Designer.cs</LastGenOutput>
+      <LastGenOutput>EtudiantEntityFram1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="GestionEtudiant\EtudiantEntityFram.edmx.diagram">
       <DependentUpon>EtudiantEntityFram.edmx</DependentUpon>
