@@ -58,7 +58,7 @@ namespace Gestion_Etudiant__WPF.GestionEtudiant
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = Config.CONNECTION_STRING;
+            cn.ConnectionString = Config.GetConnection();
             if (cn.State == ConnectionState.Closed)
             {
                 cn.Open();
@@ -119,7 +119,7 @@ namespace Gestion_Etudiant__WPF.GestionEtudiant
         private void filiereComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString =Config.CONNECTION_STRING;
+            cn.ConnectionString =Config.GetConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT Responsable FROM Filiere  WHERE FiliereName=@filie";
             cmd.Connection = cn;

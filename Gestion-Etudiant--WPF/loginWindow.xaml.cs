@@ -28,7 +28,7 @@ namespace Gestion_Etudiant__WPF
         public loginWindow()
         {
             InitializeComponent();
-            String strConn = Config.CONNECTION_STRING;
+            String strConn = Config.GetConnection();
             con.ConnectionString = strConn;
         }
         private void btnExit_Click(object sender, RoutedEventArgs e)

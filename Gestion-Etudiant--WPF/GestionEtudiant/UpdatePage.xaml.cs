@@ -128,7 +128,7 @@ namespace Gestion_Etudiant__WPF.GestionEtudiant
         {
 
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString =Config.CONNECTION_STRING;
+            cn.ConnectionString =Config.GetConnection();
             if (cn.State == ConnectionState.Closed)
             {
                 cn.Open();

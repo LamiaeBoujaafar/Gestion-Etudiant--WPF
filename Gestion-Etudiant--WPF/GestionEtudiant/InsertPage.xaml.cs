@@ -119,7 +119,7 @@ namespace Gestion_Etudiant__WPF.GestionEtudiant
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString =Config.CONNECTION_STRING;
+            cn.ConnectionString =Config.GetConnection();
             if (cn.State == ConnectionState.Closed)
             {
                 cn.Open();

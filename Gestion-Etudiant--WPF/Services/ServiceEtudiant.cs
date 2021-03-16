@@ -12,7 +12,7 @@ namespace Gestion_Etudiant__WPF.Services
     {
         SqlConnection connection = new SqlConnection();
         SqlCommand command = new SqlCommand();
-        String strConn = Config.CONNECTION_STRING;
+        String strConn = Config.GetConnection();
 
         public ServiceEtudiant()
         {
