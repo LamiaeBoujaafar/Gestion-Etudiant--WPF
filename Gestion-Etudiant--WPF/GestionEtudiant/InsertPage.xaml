@@ -9,7 +9,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Background="#FFEFD5"
+        Background="#f8f1f1" 
         Loaded="Window_Loaded"
         
         mc:Ignorable="d"
@@ -20,7 +20,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0"  Text="Coordonnées de l'etudiant" VerticalAlignment="Top"  Height="14" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+        <TextBlock Grid.Row="0" Foreground="#350b40" FontWeight="DemiBold"  FontFamily="Great Vibes" FontSize="24" Text="Coordonnées de l'etudiant" VerticalAlignment="Top"  Height="28" HorizontalAlignment="Center" Margin="0 10 0 0"/>
 
         <StackPanel Grid.Row="1" Width="220" HorizontalAlignment="Center">
             <!-- CNE -->
@@ -132,13 +132,10 @@
             </StackPanel>
             <Button x:Name="insererBtn" 
                     Margin="20"
-                    Background="#350b40"
-                    Style="{StaticResource MaterialDesignRaisedButton}"
                     Content="Insérer"
-                    Width="100"
-                    materialDesign:ButtonAssist.CornerRadius="10"
-                    ToolTip="MaterialDesignRaisedButton with Round Corners"
+                    Width="140" Height="35"
                     Click="insererBtn_Click"/>
+            
 
             <!--Boutton de soumission-->
 

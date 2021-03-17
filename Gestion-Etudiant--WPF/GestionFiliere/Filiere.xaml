@@ -29,8 +29,8 @@
             
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-                <Button x:Name="LoadButton"  Content="Charger DATA" Click="btnData_Click" Width="150" Margin="5"/>
-                <Button x:Name="DeleteButton"  Content="Supprimer" Click="btnDelete_Click" Width="150" Margin="5"/>
+                <Button x:Name="LoadButton"  Width="146" Height="40" Content="Charger DATA" Click="btnData_Click"  Margin="5"/>
+                <Button x:Name="DeleteButton"  Content="Supprimer" Click="btnDelete_Click"  Width="146" Height="40" Margin="5"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="0 140 0 0">
@@ -40,8 +40,8 @@
                 <TextBox x:Name="txtResponsable" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Responsable de filiere"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
                 <TextBox x:Name="txtFiliere" Margin="0 5 0 0" materialDesign:HintAssist.Hint="Nom du Filière"  Width="250"    Foreground="#350b40"  BorderBrush="#350b40" CaretBrush="#350b40" SelectionBrush="#350b40"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-                    <Button x:Name="ModifyButton"  Content="Modifier" Click="btnModify_Click" Width="100" Margin="5"/>
-                    <Button x:Name="AddButton"  Content="Ajouter" Width="100" Click="btnAdd_Click" Margin="5"/>
+                    <Button x:Name="ModifyButton"  Content="Modifier" Click="btnModify_Click"  Width="146" Height="40" Margin="5"/>
+                    <Button x:Name="AddButton"  Content="Ajouter"  Width="146" Height="40" Click="btnAdd_Click" Margin="5"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
