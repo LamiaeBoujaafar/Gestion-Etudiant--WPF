@@ -8,13 +8,8 @@
         mc:Ignorable="d"
         Title="loginWindow"  Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid >
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
-                <GradientStop Color="#ad6c80" Offset="1" />
-                <GradientStop Color="#f8f1f1" Offset="0" />
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Border Height="440" VerticalAlignment="Top" CornerRadius="0 0 100 0" Background="#350b40" >
+        
+        <Border Height="500" VerticalAlignment="Top"  Background="#350b40" >
         </Border>
         <StackPanel Orientation="Horizontal">
             

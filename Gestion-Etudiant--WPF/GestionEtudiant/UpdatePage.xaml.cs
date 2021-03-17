@@ -80,7 +80,7 @@ namespace Gestion_Etudiant__WPF.GestionEtudiant
                     return;
                 }
                 string sourceFile = (imgSiteLogo.Source as BitmapImage).UriSource.AbsolutePath;
-                string targetPath = @"E:\pictures";
+                string targetPath = @"E:\pictures"; ;
                 // for the name of student image set its name to "firstName-lastName-CNE.jpg"
                 //MessageBox.Show(AppDomain.CurrentDomain.BaseDirectory);
                 string fileName = String.Format("{0}-{1}-{2}.jpg", nomTxt.Text, prenomTxt.Text, cneTxt.Text);

@@ -20,8 +20,8 @@
                   AutoGenerateColumns="False"
                   SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"
                   
-            HorizontalAlignment="Left"  Background="#add0ae" Height="355" 
-                  Margin="198,129,0,0" VerticalAlignment="Top" Width="784" Foreground="Black" FontWeight="Bold" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False">
+            HorizontalAlignment="Left"   Height="335" 
+                  Margin="48,129,0,0" VerticalAlignment="Top" Width="904" Foreground="Black" FontWeight="Bold" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns >
                 <DataGridTemplateColumn Header="photo"  IsReadOnly="True" Width="120">
                     <DataGridTemplateColumn.CellTemplate>
@@ -89,13 +89,15 @@
                           materialDesign:HintAssist.Hint="Filière"
                           materialDesign:HintAssist.HintOpacity="1"
                           IsEditable="True" 
-                  SelectionChanged="filiereComboBox_SelectionChanged" Margin="496,40,334,460"/>
-        <Button x:Name="AfficherBtn" Background="#350b40" Content="Afficher"  Click="AfficherBtn_Click" HorizontalAlignment="Left" Margin="25,160,0,0" VerticalAlignment="Top" Width="144" Height="40"/>
-        <TextBlock Margin="198,46,556,0"  VerticalAlignment="Top" Height="34" Text="Choix de Filière" FontSize="28" FontWeight="DemiBold"  TextAlignment="Center" Background="#add0ae"/>
-        <Button x:Name="suppBtn" Background="#350b40" Click="suppBtn_Click" Content="Supprimer" HorizontalAlignment="Left" Margin="25,342,0,0" VerticalAlignment="Top" Width="146" Height="40"/>
-        <Button x:Name="modifBtn" Background="#350b40" Click="modifBtn_Click" Content="Modifier" HorizontalAlignment="Left" Margin="24,252,0,0" VerticalAlignment="Top" Width="145" Height="40" RenderTransformOrigin="-1.476,4.425"/>
-        <Label Content="Responsable de filiere :" HorizontalAlignment="Left" Margin="434,489,0,0" VerticalAlignment="Top" Width="306" FontSize="26" FontWeight="Medium" Height="51" RenderTransformOrigin="0.405,0.49"/>
-        <TextBlock x:Name="respoTxtBox" Text="hello world" HorizontalAlignment="Left" Height="34" Margin="724,494,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="204" IsEnabled="False" FontSize="23" FontFamily="Century Gothic" Foreground="Black"/>
-        <Button x:Name="ajoutBtn" Background="#350b40" Click="ajoutBtn_Click" Content="Ajouter" HorizontalAlignment="Left" Margin="24,429,0,0" VerticalAlignment="Top" Width="147" Height="40"/>
+                  SelectionChanged="filiereComboBox_SelectionChanged" FontSize="18" Margin="70,40,334,460"/>
+        
+
+        <TextBlock Margin="50,46,556,0"  VerticalAlignment="Top" Height="34" Text="Choix de Filière" FontSize="26" Foreground="#350b40" FontWeight="DemiBold"  FontFamily="Great Vibes" />
+        <Label Content="Responsable de filiere :" HorizontalAlignment="Left" Margin="524,40,0,0" VerticalAlignment="Top" Width="306" FontSize="26" Foreground="#350b40" FontWeight="DemiBold"  FontFamily="Great Vibes"/>
+        <TextBlock x:Name="respoTxtBox"  Text="hello world"  Height="34" Margin="840,45,0,0"   Width="204" VerticalAlignment="Top" IsEnabled="False" FontSize="23" FontFamily="Century Gothic" Foreground="Black"/>
+        <Button x:Name="suppBtn"  Click="suppBtn_Click" Content="Supprimer" Margin="700,459,0,0"  HorizontalAlignment="Left"   Width="146" Height="40"/>
+        <Button x:Name="modifBtn" Click="modifBtn_Click" Content="Modifier" Margin="500,459,0,0"  HorizontalAlignment="Left"  Width="145" Height="40" RenderTransformOrigin="-1.476,4.425"/>
+        <Button x:Name="AfficherBtn"  Content="Afficher"  Click="AfficherBtn_Click" HorizontalAlignment="Left" Margin="300,459,0,0" Width="144" Height="40"/>
+        <Button x:Name="ajoutBtn"  Click="ajoutBtn_Click" Content="Ajouter" Margin="100,459,0,0"  HorizontalAlignment="Left"  Width="147" Height="40"/>
     </Grid>
 </UserControl>
